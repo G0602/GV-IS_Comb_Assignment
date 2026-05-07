@@ -12,6 +12,10 @@ public class DoorInteractable : MonoBehaviour
     [Header("Settings")]
     public float openSpeed = 5f;
 
+    [Header("UI")]
+    public InteractionPromptUI interactionPromptUI;
+    public string promptMessage = "Press E to open/close door";
+
     private bool isOpen = false;
     private bool playerNearby = false;
 
@@ -55,6 +59,12 @@ public class DoorInteractable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
+
+            if (interactionPromptUI != null)
+            {
+                interactionPromptUI.ShowPrompt(promptMessage);
+            }
+
             Debug.Log("Press E to open/close door");
         }
     }
@@ -64,6 +74,12 @@ public class DoorInteractable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
+
+            if (interactionPromptUI != null)
+            {
+                interactionPromptUI.HidePrompt();
+            }
+
             Debug.Log("Player left door area");
         }
     }
