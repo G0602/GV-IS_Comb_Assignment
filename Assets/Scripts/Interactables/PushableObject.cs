@@ -2,37 +2,24 @@ using UnityEngine;
 
 public class PushableObject : MonoBehaviour
 {
-    [Header("Push Settings")]
-    public float minPushSpeed = 0.1f;
+    public float pushForce = 4f;
 
     private Rigidbody rb;
 
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
 
+    public void Push(Vector3 direction)
+    {
         if (rb == null)
         {
-            Debug.LogWarning("PushableObject needs a Rigidbody.");
+            Debug.LogWarning("No Rigidbody found on " + gameObject.name);
+            return;
         }
-    }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            Debug.Log("Player touched pushable obstacle.");
-        }
-    }
-
-    void OnCollisionStay(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            if (rb != null && rb.linearVelocity.magnitude > minPushSpeed)
-            {
-                Debug.Log("Pushable obstacle is moving.");
-            }
-        }
+        Vector3 flatDirection = new Vector3(direction.x, 0f, direction.z).normalized;
+        rb.AddForce(flatDirection * pushForce, ForceMode.Impulse);
     }
 }
