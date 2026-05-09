@@ -44,6 +44,7 @@ public class GraphManager : MonoBehaviour
 
         edge.isBlocked = true;
         Debug.Log("Blocked edge: " + fromNode + " - " + toNode);
+        RequestAlienPathRecalculation();
     }
 
     public void UnblockEdge(string fromNode, string toNode)
@@ -61,6 +62,7 @@ public class GraphManager : MonoBehaviour
 
         edge.isBlocked = false;
         Debug.Log("Unblocked edge: " + fromNode + " - " + toNode);
+        RequestAlienPathRecalculation();
     }
 
     public bool IsEdgeBlocked(string fromNode, string toNode)
@@ -84,5 +86,18 @@ public class GraphManager : MonoBehaviour
         }
 
         return null;
+    }
+    private void RequestAlienPathRecalculation()
+    {
+        AlienPathController alien = FindObjectOfType<AlienPathController>();
+
+        if (alien != null)
+        {
+            alien.RecalculatePath();
+        }
+        else
+        {
+            Debug.LogWarning("AlienPathController not found in scene.");
+        }
     }
 }
