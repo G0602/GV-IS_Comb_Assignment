@@ -6,14 +6,59 @@ public class PlayerPushInteraction : MonoBehaviour
     public float pushDistance = 5f;
     public float pushCooldown = 0.3f;
 
+    [Header("UI")]
+    public InteractionPromptUI interactionPromptUI;
+    public string pushPromptMessage = "Press E to push";
+
     private float nextPushTime;
+    private bool isLookingAtPushable = false;
 
     private void Update()
     {
+        CheckPushablePrompt();
+
         if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextPushTime)
         {
             TryPush();
             nextPushTime = Time.time + pushCooldown;
+        }
+    }
+
+    private void CheckPushablePrompt()
+    {
+        if (playerCamera == null)
+            return;
+
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+
+        if (Physics.Raycast(ray, out RaycastHit hit, pushDistance))
+        {
+            PushableObject pushable = hit.collider.GetComponent<PushableObject>();
+
+            if (pushable != null)
+            {
+                if (!isLookingAtPushable)
+                {
+                    isLookingAtPushable = true;
+
+                    if (interactionPromptUI != null)
+                    {
+                        interactionPromptUI.ShowPrompt(pushPromptMessage);
+                    }
+                }
+
+                return;
+            }
+        }
+
+        if (isLookingAtPushable)
+        {
+            isLookingAtPushable = false;
+
+            if (interactionPromptUI != null)
+            {
+                interactionPromptUI.HidePrompt();
+            }
         }
     }
 
@@ -25,14 +70,10 @@ public class PlayerPushInteraction : MonoBehaviour
             return;
         }
 
-        Debug.Log("E pressed. Trying to push...");
-
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hit, pushDistance))
         {
-            Debug.Log("Ray hit: " + hit.collider.name);
-
             PushableObject pushable = hit.collider.GetComponent<PushableObject>();
 
             if (pushable != null)
@@ -40,14 +81,6 @@ public class PlayerPushInteraction : MonoBehaviour
                 pushable.Push(playerCamera.transform.forward);
                 Debug.Log("Pushed object: " + hit.collider.name);
             }
-            else
-            {
-                Debug.Log("Hit object is not pushable.");
-            }
-        }
-        else
-        {
-            Debug.Log("Ray hit nothing.");
         }
     }
 }
