@@ -24,6 +24,14 @@ public class DoorInteractable : MonoBehaviour
     private bool playerNearby = false;
     private PlayerInventory playerInventory;
 
+    //audio
+    public AudioSource audioSource;
+	public AudioClip openDoor,closeDoor;
+
+    void Start () {
+		audioSource = GetComponent<AudioSource> ();
+	}
+
     void Update()
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
@@ -62,6 +70,9 @@ public class DoorInteractable : MonoBehaviour
             Debug.Log("Door opened");
         else
             Debug.Log("Door closed");
+
+        audioSource.clip = isOpen?openDoor:closeDoor;
+		audioSource.Play ();
     }
 
     void RotateDoor()

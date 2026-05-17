@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerFlashlightController : MonoBehaviour
 {
-    public GameObject flashlightObject;
+    public GameObject flashlightObjectToPickUp; // The flashlight object in the world that the player can pick up
+
+    public GameObject flashlightInHandObject; // Optional: Visual representation of the flashlight in the player's hand
     public KeyCode toggleKey = KeyCode.F;
 
     private bool hasFlashlight = false;
@@ -10,13 +12,14 @@ public class PlayerFlashlightController : MonoBehaviour
 
     void Start()
     {
-        if (flashlightObject != null)
+        if ((flashlightObjectToPickUp != null) || (flashlightInHandObject != null))
         {
-            flashlightObject.SetActive(false);
+            flashlightObjectToPickUp.SetActive(true);
+            flashlightInHandObject.SetActive(false);
         }
         else
         {
-            Debug.LogWarning("Flashlight Object is not assigned on Player.");
+            Debug.LogWarning("Flashlight Objects are not assigned on Player properly.");
         }
     }
 
@@ -39,9 +42,10 @@ public class PlayerFlashlightController : MonoBehaviour
         hasFlashlight = true;
         isFlashlightOn = true;
 
-        if (flashlightObject != null)
+        if (flashlightObjectToPickUp != null)
         {
-            flashlightObject.SetActive(true);
+            flashlightObjectToPickUp.SetActive(false);
+            flashlightInHandObject.SetActive(true);
         }
 
         Debug.Log("Torch picked up. Flashlight unlocked.");
@@ -52,9 +56,9 @@ public class PlayerFlashlightController : MonoBehaviour
     {
         isFlashlightOn = !isFlashlightOn;
 
-        if (flashlightObject != null)
+        if (flashlightObjectToPickUp != null)
         {
-            flashlightObject.SetActive(isFlashlightOn);
+            flashlightObjectToPickUp.SetActive(isFlashlightOn);
         }
 
         Debug.Log(isFlashlightOn ? "Flashlight ON" : "Flashlight OFF");

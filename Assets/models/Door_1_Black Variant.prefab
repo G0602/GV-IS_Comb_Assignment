@@ -113,6 +113,13 @@ MonoBehaviour:
   closedRotation: {x: 0, y: 0, z: 0}
   openRotation: {x: 0, y: 90, z: 0}
   openSpeed: 5
+  requiresKeycard: 0
+  lockedMessage: Need keycard
+  interactionPromptUI: {fileID: 0}
+  promptMessage: Press E to open/close door
+  audioSource: {fileID: 0}
+  openDoor: {fileID: 0}
+  closeDoor: {fileID: 0}
 --- !u!65 &3992469954356706316
 BoxCollider:
   m_ObjectHideFlags: 0
