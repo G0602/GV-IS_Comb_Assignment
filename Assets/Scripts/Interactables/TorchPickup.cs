@@ -19,7 +19,11 @@ public class TorchPickup : MonoBehaviour
 
     void PickUpTorch()
     {
-        if (playerFlashlightController == null) return;
+        if (playerFlashlightController == null)
+        {
+            Debug.LogWarning("PlayerFlashlightController not found on player.");
+            return;
+        }
 
         playerFlashlightController.GiveFlashlight();
 
@@ -27,10 +31,6 @@ public class TorchPickup : MonoBehaviour
         {
             interactionPromptUI.HidePrompt();
         }
-
-        Debug.Log("Torch picked up");
-
-        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
