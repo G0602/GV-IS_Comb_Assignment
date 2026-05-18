@@ -1255,6 +1255,7 @@ GameObject:
   - component: {fileID: 545200307134542605}
   - component: {fileID: 4540698907817001954}
   - component: {fileID: 6375265860289726172}
+  - component: {fileID: 7291430815748220990}
   m_Layer: 8
   m_Name: Aline_standin
   m_TagString: Player
@@ -1337,6 +1338,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlienNavTest
   target: {fileID: 0}
+--- !u!136 &7291430815748220990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537006311249863343}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &3861098755785535604
 GameObject:
   m_ObjectHideFlags: 0
