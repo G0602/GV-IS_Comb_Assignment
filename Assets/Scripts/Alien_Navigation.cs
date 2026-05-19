@@ -7,6 +7,7 @@ public class AlienNavTest : MonoBehaviour
 
     private NavMeshAgent agent;
     private Animator animator;
+    private AlienFreezeTest freezeState;
 
     private int speedHash;
     private int motionSpeedHash;
@@ -15,6 +16,12 @@ public class AlienNavTest : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        freezeState = GetComponent<AlienFreezeTest>();
+
+        if (freezeState == null)
+        {
+            freezeState = gameObject.AddComponent<AlienFreezeTest>();
+        }
 
         speedHash = Animator.StringToHash("Speed");
         motionSpeedHash = Animator.StringToHash("MotionSpeed");
@@ -29,14 +36,33 @@ public class AlienNavTest : MonoBehaviour
         if (target == null || !agent.isOnNavMesh)
             return;
 
+        if (freezeState != null && freezeState.IsFrozen())
+        {
+            agent.isStopped = true;
+            UpdateAnimator(0f);
+            return;
+        }
+
+        agent.isStopped = false;
         agent.SetDestination(target.position);
 
-        float speed = agent.velocity.magnitude;
+        UpdateAnimator(agent.velocity.magnitude);
+    }
 
+    private void UpdateAnimator(float speed)
+    {
         if (animator != null)
         {
             animator.SetFloat(speedHash, speed);
             animator.SetFloat(motionSpeedHash, speed > 0.1f ? 1f : 0f);
         }
+    }
+
+    private void OnFootstep(AnimationEvent animationEvent)
+    {
+    }
+
+    private void OnLand(AnimationEvent animationEvent)
+    {
     }
 }
