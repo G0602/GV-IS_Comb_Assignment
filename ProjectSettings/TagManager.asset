@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Alien
   - Pushable
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - character
   - Water
   - UI
-  - 
+  - Unmovable
   - 
   - 
   - 

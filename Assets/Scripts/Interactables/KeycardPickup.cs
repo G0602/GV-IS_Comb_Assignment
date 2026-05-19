@@ -9,6 +9,16 @@ public class KeycardPickup : MonoBehaviour
     private bool playerNearby = false;
     private PlayerInventory playerInventory;
 
+    void Start()
+    {
+        if (interactionPromptUI == null)
+        {
+            Debug.LogWarning("InteractionPromptUI reference is missing. Please assign it in the inspector.");
+        }
+
+        gameObject.SetActive(true);
+    }
+
     void Update()
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))

@@ -1,12 +1,29 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FlashlightAlienFreeze : MonoBehaviour
 {
     [Header("Flashlight Detection")]
     public Transform flashlightOrigin;
+    public Transform aimReference;
     public float freezeRange = 15f;
+    [Range(1f, 179f)]
+    public float influenceConeAngle = 35f;
+    public LayerMask detectionLayers = ~0;
+    public bool requireLineOfSight = true;
 
-    private AlienFreezeTest currentlyFrozenAlien;
+    private PlayerFlashlightController flashlightController;
+    private readonly HashSet<AlienFreezeTest> currentlyFrozenAliens = new HashSet<AlienFreezeTest>();
+
+    void Awake()
+    {
+        flashlightController = GetComponentInParent<PlayerFlashlightController>();
+
+        if (aimReference == null && Camera.main != null)
+        {
+            aimReference = Camera.main.transform;
+        }
+    }
 
     void Update()
     {
@@ -15,25 +32,34 @@ public class FlashlightAlienFreeze : MonoBehaviour
             return;
         }
 
-        // If flashlight object is disabled/off, unfreeze alien
-        if (!flashlightOrigin.gameObject.activeInHierarchy)
+        if (flashlightController != null &&
+            (!flashlightController.HasFlashlight || !flashlightController.IsFlashlightOn))
         {
             UnfreezeCurrentAlien();
             return;
         }
 
-        DetectAlienInFlashlight();
+        if (flashlightController == null && !flashlightOrigin.gameObject.activeInHierarchy)
+        {
+            UnfreezeCurrentAlien();
+            return;
+        }
+
+        DetectAliensInFlashlightCone();
     }
 
-    void DetectAlienInFlashlight()
+    void DetectAliensInFlashlightCone()
     {
-        Ray ray = new Ray(flashlightOrigin.position, flashlightOrigin.forward);
-        RaycastHit[] hits = Physics.RaycastAll(ray, freezeRange);
+        Collider[] hits = Physics.OverlapSphere(
+            flashlightOrigin.position,
+            freezeRange,
+            detectionLayers,
+            QueryTriggerInteraction.Ignore
+        );
 
-        AlienFreezeTest detectedAlien = null;
-        float closestDistance = Mathf.Infinity;
+        HashSet<AlienFreezeTest> aliensInCone = new HashSet<AlienFreezeTest>();
 
-        foreach (RaycastHit hit in hits)
+        foreach (Collider hit in hits)
         {
             // Ignore the player itself
             if (hit.transform.root == transform.root)
@@ -41,42 +67,116 @@ public class FlashlightAlienFreeze : MonoBehaviour
                 continue;
             }
 
-            if (hit.collider.CompareTag("Alien"))
-            {
-                AlienFreezeTest alien = hit.collider.GetComponent<AlienFreezeTest>();
+            AlienFreezeTest alien = hit.GetComponentInParent<AlienFreezeTest>();
 
-                if (alien != null && hit.distance < closestDistance)
-                {
-                    detectedAlien = alien;
-                    closestDistance = hit.distance;
-                }
+            if (alien == null)
+            {
+                continue;
+            }
+
+            if (!IsInsideFlashlightCone(alien.transform))
+            {
+                continue;
+            }
+
+            if (requireLineOfSight && !HasLineOfSightTo(hit, alien))
+            {
+                continue;
+            }
+
+            aliensInCone.Add(alien);
+        }
+
+        Debug.DrawRay(flashlightOrigin.position, GetAimForward() * freezeRange, Color.yellow);
+
+        foreach (AlienFreezeTest alien in aliensInCone)
+        {
+            alien.SetFrozen(true);
+        }
+
+        foreach (AlienFreezeTest alien in currentlyFrozenAliens)
+        {
+            if (!aliensInCone.Contains(alien))
+            {
+                alien.SetFrozen(false);
             }
         }
 
-        Debug.DrawRay(flashlightOrigin.position, flashlightOrigin.forward * freezeRange, Color.yellow);
+        currentlyFrozenAliens.Clear();
 
-        if (detectedAlien != null)
+        foreach (AlienFreezeTest alien in aliensInCone)
         {
-            if (currentlyFrozenAlien != null && currentlyFrozenAlien != detectedAlien)
+            currentlyFrozenAliens.Add(alien);
+        }
+    }
+
+    bool IsInsideFlashlightCone(Transform target)
+    {
+        Vector3 directionToTarget = target.position - flashlightOrigin.position;
+
+        if (directionToTarget.sqrMagnitude > freezeRange * freezeRange)
+        {
+            return false;
+        }
+
+        float angleToTarget = Vector3.Angle(GetAimForward(), directionToTarget);
+        return angleToTarget <= influenceConeAngle * 0.5f;
+    }
+
+    Vector3 GetAimForward()
+    {
+        if (aimReference != null)
+        {
+            return aimReference.forward;
+        }
+
+        return flashlightOrigin.forward;
+    }
+
+    bool HasLineOfSightTo(Collider hitCollider, AlienFreezeTest alien)
+    {
+        Vector3 rayTarget = hitCollider.bounds.center;
+        Vector3 directionToTarget = rayTarget - flashlightOrigin.position;
+        float distanceToTarget = directionToTarget.magnitude;
+
+        if (distanceToTarget <= 0f)
+        {
+            return false;
+        }
+
+        RaycastHit[] hits = Physics.RaycastAll(
+            flashlightOrigin.position,
+            directionToTarget.normalized,
+            distanceToTarget,
+            detectionLayers,
+            QueryTriggerInteraction.Ignore
+        );
+
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.transform.root == transform.root)
             {
-                currentlyFrozenAlien.SetFrozen(false);
+                continue;
             }
 
-            currentlyFrozenAlien = detectedAlien;
-            currentlyFrozenAlien.SetFrozen(true);
+            return hit.collider.GetComponentInParent<AlienFreezeTest>() == alien;
         }
-        else
-        {
-            UnfreezeCurrentAlien();
-        }
+
+        return false;
     }
 
     void UnfreezeCurrentAlien()
     {
-        if (currentlyFrozenAlien != null)
+        foreach (AlienFreezeTest alien in currentlyFrozenAliens)
         {
-            currentlyFrozenAlien.SetFrozen(false);
-            currentlyFrozenAlien = null;
+            if (alien != null)
+            {
+                alien.SetFrozen(false);
+            }
         }
+
+        currentlyFrozenAliens.Clear();
     }
 }
