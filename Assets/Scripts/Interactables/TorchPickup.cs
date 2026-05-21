@@ -29,7 +29,7 @@ public class TorchPickup : MonoBehaviour
 
         if (interactionPromptUI != null)
         {
-            interactionPromptUI.HidePrompt();
+            interactionPromptUI.ShowPrompt("Flashlight picked up!\nPress F to turn ON/OFF torch light");
         }
     }
 

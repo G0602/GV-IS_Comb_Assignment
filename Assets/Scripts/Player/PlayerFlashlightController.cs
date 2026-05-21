@@ -6,7 +6,7 @@ public class PlayerFlashlightController : MonoBehaviour
 
     public GameObject flashlightInHandObject; // Optional: Visual representation of the flashlight in the player's hand
 
-    public InteractionPromptUI interactionPromptUI;
+    private InteractionPromptUI interactionPromptUI;
     public KeyCode toggleKey = KeyCode.F;
 
     private bool hasFlashlight = false;
@@ -18,6 +18,16 @@ public class PlayerFlashlightController : MonoBehaviour
 
     void Start()
     {
+        interactionPromptUI = FindAnyObjectByType<InteractionPromptUI>();
+        
+        if (interactionPromptUI != null)
+        {
+            interactionPromptUI.ShowPrompt("Objective 1: Find the torch to unlock the flashlight.");
+        } else
+        {
+            Debug.LogWarning("InteractionPromptUI not found in the scene. Flashlight pickup prompt will not be shown.");
+        }
+
         if (flashlightObjectToPickUp != null)
         {
             flashlightObjectToPickUp.SetActive(true);
@@ -66,11 +76,6 @@ public class PlayerFlashlightController : MonoBehaviour
             SetFlashlightBeamActive(false);
         }
 
-        if (interactionPromptUI != null)
-        {
-            interactionPromptUI.ShowPrompt("Flashlight picked up!\nPress F to turn ON/OFF torch light");
-        }
-
         Debug.Log("Torch picked up. Flashlight unlocked.");
         Debug.Log("Press F to turn ON/OFF torch light");
     }
@@ -83,6 +88,11 @@ public class PlayerFlashlightController : MonoBehaviour
         {
             flashlightInHandObject.SetActive(true);
             SetFlashlightBeamActive(isFlashlightOn);
+        }
+
+        if (interactionPromptUI != null)
+        {
+            interactionPromptUI.ShowPrompt(isFlashlightOn ? "Flashlight ON" : "Flashlight OFF");
         }
 
         Debug.Log(isFlashlightOn ? "Flashlight ON" : "Flashlight OFF");
