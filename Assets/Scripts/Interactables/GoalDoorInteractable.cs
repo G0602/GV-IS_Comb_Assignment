@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorInteractable : MonoBehaviour
+public class GoalDoorInteractable : MonoBehaviour
 {
     [Header("Door Part")]
     public Transform doorPart;
@@ -12,12 +12,20 @@ public class DoorInteractable : MonoBehaviour
     [Header("Settings")]
     public float openSpeed = 5f;
 
+    [Header("Lock Settings")]
+    public bool requiresKeycard = false;
+    public string lockedMessage = "Need keycard";
+
     [Header("UI")]
     private InteractionPromptUI interactionPromptUI;
     public string promptMessage = "Press E to open/close door";
 
+    [Header("Win Condition")]
+    public bool goal = false;
+
     private bool isOpen = false;
     private bool playerNearby = false;
+    private PlayerInventory playerInventory;
 
     //audio
     public AudioSource audioSource;
@@ -32,10 +40,36 @@ public class DoorInteractable : MonoBehaviour
     {
         if (playerNearby && Input.GetKeyDown(KeyCode.E))
         {
-            ToggleDoor();
+            TryToggleDoor();
         }
 
         RotateDoor();
+    }
+
+    void TryToggleDoor()
+    {
+        if (requiresKeycard)
+        {
+            if (playerInventory == null || !playerInventory.HasKeycard())
+            {
+                Debug.Log("Door locked. Need keycard.");
+
+                if (interactionPromptUI != null)
+                {
+                    interactionPromptUI.ShowPrompt(lockedMessage);
+                }
+
+                return;
+            }
+        }
+
+        ToggleDoor();
+
+        if (goal && isOpen)
+        {
+            Debug.Log("Goal reached! You win!");
+            GameOverMenu.ShowGameOverScreen("You Won");
+        }
     }
 
     void ToggleDoor()
@@ -71,6 +105,7 @@ public class DoorInteractable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
+            playerInventory = other.GetComponentInParent<PlayerInventory>();
 
             if (interactionPromptUI != null)
             {
@@ -86,6 +121,7 @@ public class DoorInteractable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
+            playerInventory = null;
 
             if (interactionPromptUI != null)
             {

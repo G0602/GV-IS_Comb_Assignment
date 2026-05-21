@@ -10,6 +10,7 @@ public class GameOverMenu : MonoBehaviour
 
     public static bool IsGameOver { get; private set; }
     private Button[] menuButtons = new Button[0];
+    private TextMeshProUGUI titleLabel;
     private int selectedButtonIndex = -1;
 
     private void Awake()
@@ -25,6 +26,7 @@ public class GameOverMenu : MonoBehaviour
             gameOverUI = CreateDefaultGameOverMenu();
         }
 
+        titleLabel = gameOverUI.GetComponentInChildren<TextMeshProUGUI>(true);
         menuButtons = MenuInputUtility.PrepareButtons(gameOverUI);
         gameOverUI.SetActive(false);
         IsGameOver = false;
@@ -40,10 +42,25 @@ public class GameOverMenu : MonoBehaviour
 
     public void ShowGameOver()
     {
+        ShowGameOver("Game Lost");
+    }
+
+    public void ShowGameOver(string message)
+    {
         var pauseMenu = FindAnyObjectByType<PauseMenu>(FindObjectsInactive.Include);
         if (pauseMenu != null)
         {
             pauseMenu.HideForGameOver();
+        }
+
+        if (titleLabel == null && gameOverUI != null)
+        {
+            titleLabel = gameOverUI.GetComponentInChildren<TextMeshProUGUI>(true);
+        }
+
+        if (titleLabel != null)
+        {
+            titleLabel.text = message;
         }
 
         IsGameOver = true;
@@ -56,13 +73,18 @@ public class GameOverMenu : MonoBehaviour
 
     public static void ShowGameOverScreen()
     {
+        ShowGameOverScreen("Game Lost");
+    }
+
+    public static void ShowGameOverScreen(string message)
+    {
         var menu = FindAnyObjectByType<GameOverMenu>(FindObjectsInactive.Include);
         if (menu == null)
         {
             menu = CreateController();
         }
 
-        menu.ShowGameOver();
+        menu.ShowGameOver(message);
     }
 
     public void Restart()
