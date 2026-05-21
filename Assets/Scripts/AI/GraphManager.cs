@@ -89,7 +89,7 @@ public class GraphManager : MonoBehaviour
     }
     private void RequestAlienPathRecalculation()
     {
-        AlienPathController alien = FindObjectOfType<AlienPathController>();
+        AlienPathController alien = FindAnyObjectByType<AlienPathController>();
 
         if (alien != null)
         {
