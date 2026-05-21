@@ -24,7 +24,7 @@ public class DoorInteractable : MonoBehaviour
 	public AudioClip openDoor,closeDoor;
 
     void Start () {
-        interactionPromptUI = FindObjectOfType<InteractionPromptUI>();
+        interactionPromptUI = FindAnyObjectByType<InteractionPromptUI>();
 		audioSource = GetComponent<AudioSource> ();
 	}
 

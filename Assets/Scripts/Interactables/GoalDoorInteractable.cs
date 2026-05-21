@@ -32,7 +32,7 @@ public class GoalDoorInteractable : MonoBehaviour
 	public AudioClip openDoor,closeDoor;
 
     void Start () {
-        interactionPromptUI = FindObjectOfType<InteractionPromptUI>();
+        interactionPromptUI = FindAnyObjectByType<InteractionPromptUI>();
 		audioSource = GetComponent<AudioSource> ();
 	}
 
@@ -68,6 +68,10 @@ public class GoalDoorInteractable : MonoBehaviour
         if (goal && isOpen)
         {
             Debug.Log("Goal reached! You win!");
+            if (interactionPromptUI != null)
+             {
+                 interactionPromptUI.hidePrompt();
+             }
             GameOverMenu.ShowGameOverScreen("You Won");
         }
     }
