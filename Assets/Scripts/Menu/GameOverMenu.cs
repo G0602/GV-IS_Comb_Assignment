@@ -28,6 +28,7 @@ public class GameOverMenu : MonoBehaviour
 
         titleLabel = gameOverUI.GetComponentInChildren<TextMeshProUGUI>(true);
         menuButtons = MenuInputUtility.PrepareButtons(gameOverUI);
+        ApplyButtonLabels();
         gameOverUI.SetActive(false);
         IsGameOver = false;
     }
@@ -42,7 +43,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void ShowGameOver()
     {
-        ShowGameOver("Game Lost");
+        ShowGameOver("You Lost");
     }
 
     public void ShowGameOver(string message)
@@ -73,7 +74,7 @@ public class GameOverMenu : MonoBehaviour
 
     public static void ShowGameOverScreen()
     {
-        ShowGameOverScreen("Game Lost");
+        ShowGameOverScreen("You Lost");
     }
 
     public static void ShowGameOverScreen(string message)
@@ -151,7 +152,8 @@ public class GameOverMenu : MonoBehaviour
         var canvas = FindAnyObjectByType<Canvas>(FindObjectsInactive.Include);
         if (canvas != null)
         {
-            EnsureEventSystem();
+            MenuInputUtility.EnsureGraphicRaycaster(canvas);
+            MenuInputUtility.EnsureEventSystem();
             return canvas;
         }
 
@@ -159,8 +161,8 @@ public class GameOverMenu : MonoBehaviour
         canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvasObject.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        canvasObject.AddComponent<GraphicRaycaster>();
-        EnsureEventSystem();
+        MenuInputUtility.EnsureGraphicRaycaster(canvas);
+        MenuInputUtility.EnsureEventSystem();
         return canvas;
     }
 
@@ -239,5 +241,27 @@ public class GameOverMenu : MonoBehaviour
         text.fontSize = 24f;
         text.alignment = TextAlignmentOptions.Center;
         text.color = new Color(0.12f, 0.12f, 0.12f);
+    }
+
+    private void ApplyButtonLabels()
+    {
+        foreach (Button button in menuButtons)
+        {
+            TextMeshProUGUI label = button.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (label == null)
+            {
+                continue;
+            }
+
+            string buttonName = button.gameObject.name.ToLowerInvariant();
+            if (buttonName.Contains("restart"))
+            {
+                label.text = "Restart";
+            }
+            else if (buttonName.Contains("quit") || buttonName.Contains("exit"))
+            {
+                label.text = "Quit";
+            }
+        }
     }
 }

@@ -70,7 +70,7 @@ public class GoalDoorInteractable : MonoBehaviour
             Debug.Log("Goal reached! You win!");
             if (interactionPromptUI != null)
              {
-                 interactionPromptUI.hidePrompt();
+                 interactionPromptUI.HidePrompt();
              }
             GameOverMenu.ShowGameOverScreen("You Won");
         }

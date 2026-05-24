@@ -26,10 +26,16 @@ public class PauseMenu : MonoBehaviour
 
         if (pauseMenuUI == null)
         {
+            pauseMenuUI = MenuInputUtility.FindSceneObjectByName("PauseMenu");
+        }
+
+        if (pauseMenuUI == null)
+        {
             pauseMenuUI = CreateDefaultPauseMenu();
         }
 
         menuButtons = MenuInputUtility.PrepareButtons(pauseMenuUI);
+        ApplyButtonLabels();
         pauseMenuUI.SetActive(false);
         isPaused = false;
     }
@@ -145,9 +151,9 @@ public class PauseMenu : MonoBehaviour
         var canvas = GetOrCreateCanvas();
         var panel = CreatePanel(canvas.transform, "PauseMenuPanel");
         CreateTitle(panel.transform, "Paused", 105f);
-        CreateButton(panel.transform, "ContinueButton", "Continue", 35f, Resume);
+        CreateButton(panel.transform, "ResumeButton", "Resume", 35f, Resume);
         CreateButton(panel.transform, "RestartButton", "Restart", -30f, Restart);
-        CreateButton(panel.transform, "QuitButton", "Quit", -95f, QuitToMainMenu);
+        CreateButton(panel.transform, "ExitButton", "Exit", -95f, QuitToMainMenu);
 
         return panel;
     }
@@ -157,7 +163,8 @@ public class PauseMenu : MonoBehaviour
         var canvas = FindAnyObjectByType<Canvas>(FindObjectsInactive.Include);
         if (canvas != null)
         {
-            EnsureEventSystem();
+            MenuInputUtility.EnsureGraphicRaycaster(canvas);
+            MenuInputUtility.EnsureEventSystem();
             return canvas;
         }
 
@@ -165,8 +172,8 @@ public class PauseMenu : MonoBehaviour
         canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvasObject.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        canvasObject.AddComponent<GraphicRaycaster>();
-        EnsureEventSystem();
+        MenuInputUtility.EnsureGraphicRaycaster(canvas);
+        MenuInputUtility.EnsureEventSystem();
         return canvas;
     }
 
@@ -245,5 +252,31 @@ public class PauseMenu : MonoBehaviour
         text.fontSize = 24f;
         text.alignment = TextAlignmentOptions.Center;
         text.color = new Color(0.12f, 0.12f, 0.12f);
+    }
+
+    private void ApplyButtonLabels()
+    {
+        foreach (Button button in menuButtons)
+        {
+            TextMeshProUGUI label = button.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (label == null)
+            {
+                continue;
+            }
+
+            string buttonName = button.gameObject.name.ToLowerInvariant();
+            if (buttonName.Contains("continue") || buttonName.Contains("resume"))
+            {
+                label.text = "Resume";
+            }
+            else if (buttonName.Contains("restart"))
+            {
+                label.text = "Restart";
+            }
+            else if (buttonName.Contains("exit") || buttonName.Contains("quit"))
+            {
+                label.text = "Exit";
+            }
+        }
     }
 }
