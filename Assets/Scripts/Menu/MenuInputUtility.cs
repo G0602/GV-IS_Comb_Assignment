@@ -6,6 +6,8 @@ public static class MenuInputUtility
 {
     public static Button[] PrepareButtons(GameObject menuRoot)
     {
+        EnsureEventSystem();
+
         if (menuRoot == null)
         {
             return new Button[0];
@@ -18,8 +20,8 @@ public static class MenuInputUtility
             navigation.mode = Navigation.Mode.Explicit;
             navigation.selectOnUp = buttons[(i - 1 + buttons.Length) % buttons.Length];
             navigation.selectOnDown = buttons[(i + 1) % buttons.Length];
-            navigation.selectOnLeft = buttons[(i - 1 + buttons.Length) % buttons.Length];
-            navigation.selectOnRight = buttons[(i + 1) % buttons.Length];
+            navigation.selectOnLeft = null;
+            navigation.selectOnRight = null;
             buttons[i].navigation = navigation;
         }
 
@@ -44,18 +46,20 @@ public static class MenuInputUtility
             return -1;
         }
 
+        selectedIndex = SyncSelectedIndex(buttons, selectedIndex);
+
         if (selectedIndex < 0 || selectedIndex >= buttons.Length)
         {
             selectedIndex = 0;
             SelectButton(buttons, selectedIndex);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             selectedIndex = WrapIndex(selectedIndex - 1, buttons.Length);
             SelectButton(buttons, selectedIndex);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             selectedIndex = WrapIndex(selectedIndex + 1, buttons.Length);
             SelectButton(buttons, selectedIndex);
@@ -64,6 +68,64 @@ public static class MenuInputUtility
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Space))
         {
             buttons[selectedIndex].onClick.Invoke();
+        }
+
+        return selectedIndex;
+    }
+
+    public static GameObject FindSceneObjectByName(string objectName)
+    {
+        foreach (GameObject sceneObject in Resources.FindObjectsOfTypeAll<GameObject>())
+        {
+            if (sceneObject.name == objectName && sceneObject.scene.IsValid() && sceneObject.scene.isLoaded)
+            {
+                return sceneObject;
+            }
+        }
+
+        return null;
+    }
+
+    public static void EnsureEventSystem()
+    {
+        var eventSystem = UnityEngine.Object.FindAnyObjectByType<EventSystem>(FindObjectsInactive.Include);
+        if (eventSystem != null)
+        {
+            if (!eventSystem.gameObject.activeInHierarchy)
+            {
+                eventSystem.gameObject.SetActive(true);
+            }
+
+            return;
+        }
+
+        var eventSystemObject = new GameObject("EventSystem");
+        eventSystemObject.AddComponent<EventSystem>();
+        eventSystemObject.AddComponent<StandaloneInputModule>();
+    }
+
+    public static void EnsureGraphicRaycaster(Canvas canvas)
+    {
+        if (canvas != null && canvas.GetComponent<GraphicRaycaster>() == null)
+        {
+            canvas.gameObject.AddComponent<GraphicRaycaster>();
+        }
+    }
+
+    private static int SyncSelectedIndex(Button[] buttons, int selectedIndex)
+    {
+        if (EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null)
+        {
+            return selectedIndex;
+        }
+
+        GameObject selectedObject = EventSystem.current.currentSelectedGameObject;
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (buttons[i] != null && buttons[i].gameObject == selectedObject)
+            {
+                return i;
+            }
         }
 
         return selectedIndex;
@@ -80,6 +142,8 @@ public static class MenuInputUtility
         {
             return;
         }
+
+        EnsureEventSystem();
 
         if (EventSystem.current != null)
         {

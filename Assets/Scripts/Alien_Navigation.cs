@@ -65,4 +65,22 @@ public class AlienNavTest : MonoBehaviour
     private void OnLand(AnimationEvent animationEvent)
     {
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ShowLossIfPlayer(other.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        ShowLossIfPlayer(collision.gameObject);
+    }
+
+    private void ShowLossIfPlayer(GameObject other)
+    {
+        if (!GameOverMenu.IsGameOver && other.CompareTag("Player"))
+        {
+            GameOverMenu.ShowGameOverScreen("You Lost");
+        }
+    }
 }
