@@ -106,5 +106,12 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
+#Build Files and related to it
+/Torchlight_Warrior-V\ 0.1_Data/
+/GV-IS_Comb_Assignment_BurstDebugInformation_DoNotShip
+*.x86_64
+*.so
+*.0
+
 #Assignment submission docs
 /Other_docs

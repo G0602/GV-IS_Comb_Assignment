@@ -6,8 +6,20 @@ public class KeycardPickup : MonoBehaviour
     public InteractionPromptUI interactionPromptUI;
     public string promptMessage = "Press E to pick up keycard";
 
+    public string pickupMessage = "Keycard picked up!";
+
     private bool playerNearby = false;
     private PlayerInventory playerInventory;
+
+    void Start()
+    {
+        if (interactionPromptUI == null)
+        {
+            Debug.LogWarning("InteractionPromptUI reference is missing. Please assign it in the inspector.");
+        }
+
+        gameObject.SetActive(true);
+    }
 
     void Update()
     {
@@ -29,7 +41,7 @@ public class KeycardPickup : MonoBehaviour
 
         if (interactionPromptUI != null)
         {
-            interactionPromptUI.HidePrompt();
+            interactionPromptUI.ShowPrompt(pickupMessage);
         }
 
         Debug.Log("Keycard picked up.");
