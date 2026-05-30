@@ -1,58 +1,125 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public static class SimplePathfinder
 {
-    private static Dictionary<string, List<string>> graph = new Dictionary<string, List<string>>()
+    public static List<GraphNode> FindPath(GraphNode start, GraphNode goal)
     {
-        { "A", new List<string> { "B" } },
-        { "B", new List<string> { "A", "C", "E" } },
-        { "C", new List<string> { "B", "D" } },
-        { "D", new List<string> { "C", "E" } },
-        { "E", new List<string> { "B", "D" } }
-    };
-
-    public static List<string> FindPath(string start, string goal)
-    {
-        Queue<string> queue = new Queue<string>();
-        Dictionary<string, string> cameFrom = new Dictionary<string, string>();
-
-        queue.Enqueue(start);
-        cameFrom[start] = null;
-
-        while (queue.Count > 0)
+        if (start == null || goal == null)
         {
-            string current = queue.Dequeue();
+            return null;
+        }
+
+        List<GraphNode> openSet = new List<GraphNode> { start };
+        HashSet<GraphNode> closedSet = new HashSet<GraphNode>();
+        Dictionary<GraphNode, GraphNode> cameFrom = new Dictionary<GraphNode, GraphNode>();
+        Dictionary<GraphNode, float> gScore = new Dictionary<GraphNode, float>
+        {
+            [start] = 0f
+        };
+
+        while (openSet.Count > 0)
+        {
+            GraphNode current = GetLowestScoreNode(openSet, gScore, goal);
 
             if (current == goal)
             {
-                return ReconstructPath(cameFrom, goal);
+                return ReconstructPath(cameFrom, current);
             }
 
-            foreach (string neighbor in graph[current])
+            openSet.Remove(current);
+            closedSet.Add(current);
+
+            foreach (GraphNode neighbor in current.neighbours)
             {
-                if (cameFrom.ContainsKey(neighbor))
+                if (neighbor == null || closedSet.Contains(neighbor))
+                {
                     continue;
+                }
 
-                if (GraphManager.Instance.IsEdgeBlocked(current, neighbor))
+                // if (IsBlocked(current, neighbor))
+                // {
+                //     continue;
+                // }
+
+                if(neighbor.isDoor && !neighbor.IsOpen())
+                {
                     continue;
+                }
 
-                queue.Enqueue(neighbor);
+                float tentativeGScore = gScore[current] + Distance(current, neighbor);
+                float existingGScore = gScore.TryGetValue(neighbor, out float score) ? score : float.PositiveInfinity;
+
+                if (tentativeGScore >= existingGScore)
+                {
+                    continue;
+                }
+
                 cameFrom[neighbor] = current;
+                gScore[neighbor] = tentativeGScore;
+
+                if (!openSet.Contains(neighbor))
+                {
+                    openSet.Add(neighbor);
+                }
             }
         }
 
         return null;
     }
 
-    private static List<string> ReconstructPath(Dictionary<string, string> cameFrom, string goal)
+    private static GraphNode GetLowestScoreNode(List<GraphNode> openSet, Dictionary<GraphNode, float> gScore, GraphNode goal)
     {
-        List<string> path = new List<string>();
-        string current = goal;
+        GraphNode bestNode = openSet[0];
+        float bestScore = GetEstimatedTotalCost(bestNode, gScore, goal);
+
+        for (int i = 1; i < openSet.Count; i++)
+        {
+            GraphNode node = openSet[i];
+            float score = GetEstimatedTotalCost(node, gScore, goal);
+
+            if (score < bestScore)
+            {
+                bestNode = node;
+                bestScore = score;
+            }
+        }
+
+        return bestNode;
+    }
+
+    private static float GetEstimatedTotalCost(GraphNode node, Dictionary<GraphNode, float> gScore, GraphNode goal)
+    {
+        float costSoFar = gScore.TryGetValue(node, out float score) ? score : float.PositiveInfinity;
+        return costSoFar + Distance(node, goal);
+    }
+
+    private static float Distance(GraphNode a, GraphNode b)
+    {
+        return Vector3.Distance(a.Position, b.Position);
+    }
+
+    // private static bool IsBlocked(GraphNode from, GraphNode to)
+    // {
+    //     GraphManager graphManager = GraphManager.Instance;
+
+    //     if (graphManager == null || !graphManager.HasEdge(from.name, to.name))
+    //     {
+    //         return false;
+    //     }
+
+    //     return graphManager.IsEdgeBlocked(from.name, to.name);
+    // }
+
+    private static List<GraphNode> ReconstructPath(Dictionary<GraphNode, GraphNode> cameFrom, GraphNode goal)
+    {
+        List<GraphNode> path = new List<GraphNode>();
+        GraphNode current = goal;
 
         while (current != null)
         {
             path.Add(current);
-            current = cameFrom[current];
+            cameFrom.TryGetValue(current, out current);
         }
 
         path.Reverse();

@@ -95,4 +95,9 @@ public class DoorInteractable : MonoBehaviour
             Debug.Log("Player left door area");
         }
     }
+
+    public bool IsOpen()
+    {
+        return isOpen;
+    }
 }

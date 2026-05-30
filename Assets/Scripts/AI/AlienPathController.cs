@@ -3,12 +3,17 @@ using UnityEngine;
 
 public class AlienPathController : MonoBehaviour
 {
-    public string currentNode = "A";
-    public string targetNode = "D";
+    public GraphNode currentNode;
+    public GraphNode targetNode;
 
-    private List<string> currentPath = new List<string>();
+    private List<GraphNode> currentPath = new List<GraphNode>();
 
     private void Start()
+    {
+        RecalculatePath();
+    }
+
+    private void Update()
     {
         RecalculatePath();
     }
