@@ -8,6 +8,11 @@ public class mainScript : MonoBehaviour
     public static bool isDebugMode = false;
     public KeyCode toggleDebugKey = KeyCode.Tab;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(toggleDebugKey))
