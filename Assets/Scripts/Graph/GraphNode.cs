@@ -7,7 +7,7 @@ public class GraphNode : MonoBehaviour
 
     [SerializeField] private DoorInteractable doorObject;
 
-    public bool graphOn = false;
+    public bool graphOn = true;
 
     public bool isDoor = false;
 
@@ -24,7 +24,7 @@ public class GraphNode : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (graphOn)
+        if (!graphOn || !mainScript.isDebugMode)
             return;
 
         Gizmos.color = Color.yellow;

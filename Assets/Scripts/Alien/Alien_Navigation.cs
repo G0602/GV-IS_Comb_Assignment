@@ -92,11 +92,20 @@ public class AlienNavTest : MonoBehaviour
         waypointIndex = 0;
         headingToPlayer = false;
 
-        List<GraphNode> path = A_Star_Pathfinder.FindPath(currentNode, activeTargetNode);
+        List<GraphNode> path;
+
+        if (!mainScript.isDebugMode)
+        {
+            path = A_Star_Pathfinder.FindPath(currentNode, activeTargetNode);
+        }
+        else
+        {
+            path = BFSPathfinder.FindPath(currentNode, activeTargetNode);
+        }
 
         if (path == null || path.Count == 0)
         {
-            Debug.LogWarning("No A* graph path found for alien.");
+            Debug.LogWarning("No" + (!mainScript.isDebugMode ? " A*" : " BFS") + " graph path found for alien.");
             agent.SetDestination(target.position);
             headingToPlayer = true;
             return;
@@ -106,7 +115,7 @@ public class AlienNavTest : MonoBehaviour
         waypointIndex = currentPath.Count > 1 ? 1 : 0;
         SetDestinationToCurrentWaypoint();
 
-        Debug.Log("A* alien path: " + FormatPath(currentPath));
+        Debug.Log((mainScript.isDebugMode ? "A*" : "BFS") + " alien path: " + FormatPath(currentPath));
     }
 
     private bool ShouldRecalculatePath()
