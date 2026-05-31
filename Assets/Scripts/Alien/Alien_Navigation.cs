@@ -92,7 +92,7 @@ public class AlienNavTest : MonoBehaviour
         waypointIndex = 0;
         headingToPlayer = false;
 
-        List<GraphNode> path = SimplePathfinder.FindPath(currentNode, activeTargetNode);
+        List<GraphNode> path = A_Star_Pathfinder.FindPath(currentNode, activeTargetNode);
 
         if (path == null || path.Count == 0)
         {

@@ -22,7 +22,7 @@ public class AlienPathController : MonoBehaviour
     {
         Debug.Log("Alien recalculating path...");
 
-        currentPath = SimplePathfinder.FindPath(currentNode, targetNode);
+        currentPath = A_Star_Pathfinder.FindPath(currentNode, targetNode);
 
         if (currentPath == null || currentPath.Count == 0)
         {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class SimplePathfinder
+public static class A_Star_Pathfinder
 {
     public static List<GraphNode> FindPath(GraphNode start, GraphNode goal)
     {
