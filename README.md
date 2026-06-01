@@ -29,6 +29,11 @@ Suggested workflow to review bindings:
 2. Add the intended scene(s) to the build list.
 3. Select target platform and press Build.
 
+## Troubleshooting
+- If input does not respond, re-open Assets/InputSystem_Actions.inputactions and ensure the correct action map is enabled.
+- If lighting appears incorrect, verify URP is assigned in ProjectSettings/Graphics.
+- If a scene loads empty, confirm it is added to Build Settings and set as active.
+
 ## Scenes
 - MainScene.unity
 - MainGasmeScene.unity
