@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 4164828458440092533}
   - component: {fileID: -5774453315378836397}
   - component: {fileID: 973114512924064100}
+  - component: {fileID: -2750882502546839221}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -665,3 +666,16 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-2750882502546839221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8194207670141889656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b90ef17b0a21d4598939279b4d1380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PushableObject
+  pushForce: 4

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1120647528229105856}
   - component: {fileID: 6842055495980829619}
   - component: {fileID: 4250505611782459012}
+  - component: {fileID: 32268765737647830}
   m_Layer: 0
   m_Name: SU
   m_TagString: Untagged
@@ -140,6 +141,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &32268765737647830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140756738379420779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b90ef17b0a21d4598939279b4d1380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PushableObject
+  pushForce: 4
 --- !u!1 &6831995785759197790
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,13 +244,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3921888747926967655, guid: 8bb729c0c52aa7fdbac4a43c4d76544d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8501951570570290683}
   m_SourcePrefab: {fileID: 100100000, guid: 8bb729c0c52aa7fdbac4a43c4d76544d, type: 3}
 --- !u!4 &969757143270053306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5175941552834878935, guid: 8bb729c0c52aa7fdbac4a43c4d76544d, type: 3}
   m_PrefabInstance: {fileID: 5377834038300657773}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8992772120780184842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3921888747926967655, guid: 8bb729c0c52aa7fdbac4a43c4d76544d, type: 3}
+  m_PrefabInstance: {fileID: 5377834038300657773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8501951570570290683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992772120780184842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b90ef17b0a21d4598939279b4d1380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PushableObject
+  pushForce: 4
 --- !u!1001 &6703905482939796584
 PrefabInstance:
   m_ObjectHideFlags: 0
