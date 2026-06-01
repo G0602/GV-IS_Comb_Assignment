@@ -34,6 +34,13 @@ Suggested workflow to review bindings:
 - If lighting appears incorrect, verify URP is assigned in ProjectSettings/Graphics.
 - If a scene loads empty, confirm it is added to Build Settings and set as active.
 
+## QA Checklist
+- Scene loads without errors.
+- Player input works (movement, interactions, flashlight).
+- Core interactables respond (doors, keycards, pushable objects, torch).
+- UI prompts display when in range.
+- Performance stays stable in the main scene.
+
 ## Scenes
 - MainScene.unity
 - MainGasmeScene.unity
