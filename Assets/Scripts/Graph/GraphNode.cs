@@ -7,8 +7,6 @@ public class GraphNode : MonoBehaviour
 
     [SerializeField] private DoorInteractable doorObject;
 
-    public bool graphOn = true;
-
     public bool isDoor = false;
 
     public Vector3 Position => transform.position;
@@ -24,9 +22,6 @@ public class GraphNode : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!graphOn || !mainScript.isDebugMode)
-            return;
-
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 1.0f);
 
