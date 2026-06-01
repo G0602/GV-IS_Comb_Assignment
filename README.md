@@ -24,6 +24,13 @@ Suggested workflow to review bindings:
 2. Inspect the action maps and bindings.
 3. Update or rebind as needed for keyboard, mouse, or gamepad.
 
+## Controls Map Summary
+- Movement: WASD / left stick
+- Look: mouse / right stick
+- Interact: E / gamepad south
+- Flashlight: F / gamepad north
+- Push: hold E / gamepad south
+
 ## Build and Run
 1. Open File > Build Settings.
 2. Add the intended scene(s) to the build list.
