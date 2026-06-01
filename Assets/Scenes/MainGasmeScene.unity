@@ -276,7 +276,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &35431091
 Transform:
@@ -329,7 +328,6 @@ MonoBehaviour:
   - {fileID: 116923866}
   - {fileID: 167088374}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &55640588
 Transform:
@@ -345,6 +343,163 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2124364427}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &101178942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101178945}
+  - component: {fileID: 101178944}
+  - component: {fileID: 101178943}
+  m_Layer: 0
+  m_Name: PathLineRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!120 &101178943
+LineRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101178942}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
+--- !u!114 &101178944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101178942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427cabb24e157c2ffa4c69e1b8fb6b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathLineRenderer
+  lineRenderer: {fileID: 101178943}
+  lineHeight: 0.3
+--- !u!4 &101178945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101178942}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 950274739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &107673898
 GameObject:
@@ -382,7 +537,6 @@ MonoBehaviour:
   - {fileID: 1078812704}
   - {fileID: 982838029}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &107673900
 Transform:
@@ -439,7 +593,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1172692926}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &112383517
 Transform:
@@ -511,7 +664,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1172692926}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1001 &126782049
 PrefabInstance:
@@ -608,7 +760,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &137978205
 Transform:
@@ -806,7 +957,6 @@ MonoBehaviour:
   - {fileID: 137978204}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &147325859
 Transform:
@@ -891,7 +1041,6 @@ MonoBehaviour:
   - {fileID: 116923866}
   - {fileID: 55640587}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &167088375
 Transform:
@@ -946,7 +1095,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &203031124
 Transform:
@@ -998,8 +1146,8 @@ MonoBehaviour:
   - {fileID: 589030509}
   - {fileID: 1544647448}
   - {fileID: 2101026297}
+  - {fileID: 1644499662}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &205753305
 Transform:
@@ -1219,7 +1367,6 @@ MonoBehaviour:
   - {fileID: 1224973083}
   - {fileID: 35431090}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &234411415
 Transform:
@@ -1274,7 +1421,6 @@ MonoBehaviour:
   - {fileID: 456918273}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &253177348
 Transform:
@@ -1329,7 +1475,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &275292629
 Transform:
@@ -1619,7 +1764,6 @@ MonoBehaviour:
   - {fileID: 234411414}
   - {fileID: 35431090}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &302955751
 Transform:
@@ -1684,7 +1828,6 @@ MonoBehaviour:
   - {fileID: 1797908454}
   - {fileID: 1756251670}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &322093679
 GameObject:
@@ -1856,7 +1999,6 @@ MonoBehaviour:
   - {fileID: 2110836731}
   - {fileID: 1640061686}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &336502250
 Transform:
@@ -1945,7 +2087,6 @@ MonoBehaviour:
   - {fileID: 137978204}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &362277567
 Transform:
@@ -1995,7 +2136,6 @@ MonoBehaviour:
   - {fileID: 1844680437}
   - {fileID: 1982207327}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &371669937
 Transform:
@@ -2054,13 +2194,8 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1238463620}
   - {fileID: 205753304}
-  - {fileID: 1755463147}
   - {fileID: 1172692926}
-  - {fileID: 55640587}
-  - {fileID: 167088374}
-  - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &380980658
 Transform:
@@ -2071,7 +2206,7 @@ Transform:
   m_GameObject: {fileID: 380980656}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: 1.8000002, z: 5.5}
+  m_LocalPosition: {x: 5.52, y: 1.8000002, z: 5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2115,7 +2250,6 @@ MonoBehaviour:
   - {fileID: 2052684581}
   - {fileID: 710327062}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &381816920
 Transform:
@@ -2297,7 +2431,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &438620572
 Transform:
@@ -2362,7 +2495,6 @@ MonoBehaviour:
   - {fileID: 2006469935}
   - {fileID: 1756251670}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &449008068
 GameObject:
@@ -2403,7 +2535,6 @@ MonoBehaviour:
   - {fileID: 1031246118}
   - {fileID: 986401518}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &449008070
 Transform:
@@ -2458,7 +2589,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &456918274
 Transform:
@@ -2656,7 +2786,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &490599851
 Transform:
@@ -3123,7 +3252,7 @@ GameObject:
   - component: {fileID: 574747699}
   - component: {fileID: 574747700}
   m_Layer: 0
-  m_Name: GameControllerScripts
+  m_Name: DebuggerToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3137,12 +3266,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574747697}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 950274739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &574747700
 MonoBehaviour:
@@ -3156,6 +3285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3463aa415a7186f088a296e60ea96688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mainScript
+  debugMode: 1
   toggleDebugKey: 9
 --- !u!1 &578632533
 GameObject:
@@ -3197,7 +3327,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 629144539}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &578632535
 Transform:
@@ -3256,7 +3385,6 @@ MonoBehaviour:
   - {fileID: 982838029}
   - {fileID: 205753304}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &589030510
 Transform:
@@ -3309,7 +3437,6 @@ MonoBehaviour:
   - {fileID: 107673899}
   - {fileID: 982838029}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &629144540
 Transform:
@@ -3647,7 +3774,6 @@ MonoBehaviour:
   - {fileID: 1030533631}
   - {fileID: 1078812704}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &710327063
 Transform:
@@ -3854,7 +3980,6 @@ MonoBehaviour:
   - {fileID: 710327062}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &810291811
 Transform:
@@ -4218,12 +4343,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860356934}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.76597, y: -11.87362, z: 8.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 950274739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &887608794
 GameObject:
@@ -4717,11 +4842,47 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933801292}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 541, y: 270.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 950274739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &950274738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950274739}
+  m_Layer: 0
+  m_Name: Main Gem Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &950274739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950274738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 933801294}
+  - {fileID: 1651024732}
+  - {fileID: 860356936}
+  - {fileID: 574747699}
+  - {fileID: 101178945}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &973500673
@@ -4762,7 +4923,6 @@ MonoBehaviour:
   - {fileID: 2109823170}
   - {fileID: 490599850}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &973500675
 Transform:
@@ -4829,9 +4989,8 @@ MonoBehaviour:
   - {fileID: 629144539}
   - {fileID: 589030509}
   - {fileID: 1544647448}
-  - {fileID: 2101026297}
+  - {fileID: 1644499662}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &986401517
 GameObject:
@@ -4872,7 +5031,6 @@ MonoBehaviour:
   - {fileID: 490599850}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &986401519
 Transform:
@@ -4927,7 +5085,6 @@ MonoBehaviour:
   - {fileID: 1030533631}
   - {fileID: 1078812704}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &992626287
 Transform:
@@ -5121,7 +5278,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 629144539}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1030533632
 Transform:
@@ -5177,7 +5333,6 @@ MonoBehaviour:
   - {fileID: 456918273}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1031246119
 Transform:
@@ -5232,7 +5387,6 @@ MonoBehaviour:
   - {fileID: 167088374}
   - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1077515422
 Transform:
@@ -5304,7 +5458,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 629144539}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1084536805
 GameObject:
@@ -5345,7 +5498,6 @@ MonoBehaviour:
   - {fileID: 147325858}
   - {fileID: 810291810}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1084536807
 Transform:
@@ -5400,7 +5552,6 @@ MonoBehaviour:
   - {fileID: 2109823170}
   - {fileID: 490599850}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1097430854
 Transform:
@@ -5452,7 +5603,6 @@ MonoBehaviour:
   - {fileID: 1357145084}
   - {fileID: 1208367474}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1102782569
 Transform:
@@ -5666,7 +5816,7 @@ Transform:
   m_GameObject: {fileID: 1122331218}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.35, y: 1.8000002, z: 14.2}
+  m_LocalPosition: {x: 30.38, y: 1.8000002, z: 16.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5687,8 +5837,10 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1982207327}
   - {fileID: 2122413940}
+  - {fileID: 1172930834}
+  - {fileID: 1206065923}
+  - {fileID: 1575542938}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1127738424
 GameObject:
@@ -5771,7 +5923,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1644499662}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1166131647
 GameObject:
@@ -5809,7 +5960,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1166131649
 Transform:
@@ -5860,8 +6010,8 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   - {fileID: 1755463147}
+  - {fileID: 380980657}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1172692927
 Transform:
@@ -5909,8 +6059,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1206065923}
+  - {fileID: 2122413940}
+  - {fileID: 1122331220}
+  - {fileID: 1180127508}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1172930835
 Transform:
@@ -5958,8 +6110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1797908454}
+  - {fileID: 1172930834}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1180127509
 Transform:
@@ -6007,9 +6159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1172930834}
-  - {fileID: 1575542938}
+  - {fileID: 2122413940}
+  - {fileID: 1122331220}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1206065924
 Transform:
@@ -6065,7 +6217,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1208367475
 Transform:
@@ -6120,7 +6271,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1224973084
 Transform:
@@ -6175,7 +6325,6 @@ MonoBehaviour:
   - {fileID: 167088374}
   - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1238463621
 Transform:
@@ -6232,7 +6381,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1172692926}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1299544629
 Transform:
@@ -6730,7 +6878,6 @@ MonoBehaviour:
   - {fileID: 1667300864}
   - {fileID: 1208367474}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1357145085
 Transform:
@@ -6875,7 +7022,6 @@ MonoBehaviour:
   - {fileID: 2052684581}
   - {fileID: 710327062}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1429372948
 Transform:
@@ -7025,6 +7171,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433192880}
   m_CullTransparentMesh: 1
+--- !u!1 &1452529923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7794361981270279265, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+  m_PrefabInstance: {fileID: 8584871136332388530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1452529926
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452529923}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 9
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1511630096
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,7 +7236,6 @@ MonoBehaviour:
   - {fileID: 456918273}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1511630098
 Transform:
@@ -7118,7 +7290,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1517938461
 Transform:
@@ -7188,7 +7359,6 @@ MonoBehaviour:
   - {fileID: 205753304}
   - {fileID: 380980657}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1575542937
 GameObject:
@@ -7221,14 +7391,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1206065923}
-  - {fileID: 1077515421}
-  - {fileID: 1755463147}
-  - {fileID: 1172692926}
-  - {fileID: 55640587}
+  - {fileID: 2122413940}
+  - {fileID: 1122331220}
   - {fileID: 167088374}
-  - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1575542939
 Transform:
@@ -7317,7 +7483,6 @@ MonoBehaviour:
   - {fileID: 336502249}
   - {fileID: 1844680437}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1640061687
 Transform:
@@ -7365,8 +7530,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1147755960}
+  - {fileID: 205753304}
+  - {fileID: 982838029}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1644499663
 Transform:
@@ -7426,12 +7592,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651024730}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 541, y: 270.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 950274739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667300863
 GameObject:
@@ -7471,7 +7637,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1667300865
 Transform:
@@ -7585,7 +7750,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1755463148
 Transform:
@@ -7650,7 +7814,6 @@ MonoBehaviour:
   - {fileID: 312598567}
   - {fileID: 443005150}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1788785949 stripped
 GameObject:
@@ -7726,7 +7889,6 @@ MonoBehaviour:
   - {fileID: 1180127508}
   - {fileID: 312598567}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1804621382 stripped
 Transform:
@@ -7800,7 +7962,6 @@ MonoBehaviour:
   - {fileID: 1640061686}
   - {fileID: 371669936}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1844680438
 Transform:
@@ -7888,7 +8049,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 2110836731}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1854686793
 Transform:
@@ -8041,7 +8201,6 @@ MonoBehaviour:
   - {fileID: 137978204}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1912372858
 Transform:
@@ -8096,7 +8255,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1959178243
 Transform:
@@ -8148,7 +8306,6 @@ MonoBehaviour:
   - {fileID: 234411414}
   - {fileID: 35431090}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1959584943
 Transform:
@@ -8215,7 +8372,6 @@ MonoBehaviour:
   - {fileID: 1357145084}
   - {fileID: 1208367474}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1981359170 stripped
 GameObject:
@@ -8283,7 +8439,6 @@ MonoBehaviour:
   - {fileID: 2122413940}
   - {fileID: 1122331220}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1982207328
 Transform:
@@ -8471,7 +8626,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 443005150}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1001 &2020900170
 PrefabInstance:
@@ -8598,7 +8752,6 @@ MonoBehaviour:
   - {fileID: 1030533631}
   - {fileID: 1078812704}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2052684582
 Transform:
@@ -8714,7 +8867,6 @@ MonoBehaviour:
   - {fileID: 982838029}
   - {fileID: 205753304}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2101026298
 Transform:
@@ -8769,7 +8921,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2109823171
 Transform:
@@ -8819,7 +8970,6 @@ MonoBehaviour:
   - {fileID: 1854686792}
   - {fileID: 336502249}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2110836732
 Transform:
@@ -9030,8 +9180,10 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1982207327}
   - {fileID: 1122331220}
+  - {fileID: 1172930834}
+  - {fileID: 1206065923}
+  - {fileID: 1575542938}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2122413941
 Transform:
@@ -9287,7 +9439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3537006311249863343, guid: c9ce3fb8181aa0805a89c0a853288206, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3831588856170269337, guid: c9ce3fb8181aa0805a89c0a853288206, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9920,6 +10072,7 @@ MonoBehaviour:
   targetMoveRepathDistance: 2
   deathDistance: 2
   playerTag: Player
+  pathLineRenderer: {fileID: 101178944}
 --- !u!114 &6982812147093790482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10001,6 +10154,82 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78104ddfa3d397791aff669f2a865477, type: 3}
+--- !u!1001 &8584871136332388530
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3567095636000064673, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567095636000064673, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07250394
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.056929
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449220142021254875, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794361981270279265, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Alien_Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122943886224307900, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1891604201}
+    - target: {fileID: 8122943886224307900, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      propertyPath: pathLineRenderer
+      value: 
+      objectReference: {fileID: 101178944}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7794361981270279265, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1452529926}
+  m_SourcePrefab: {fileID: 100100000, guid: 24e522b1e9a9c6a2996d5849359e9bae, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -10015,8 +10244,6 @@ SceneRoots:
   - {fileID: 823203112}
   - {fileID: 297937194}
   - {fileID: 1964861}
-  - {fileID: 933801294}
-  - {fileID: 1651024732}
-  - {fileID: 860356936}
   - {fileID: 1854054123}
-  - {fileID: 574747699}
+  - {fileID: 950274739}
+  - {fileID: 8584871136332388530}
