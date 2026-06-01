@@ -276,7 +276,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &35431091
 Transform:
@@ -329,7 +328,6 @@ MonoBehaviour:
   - {fileID: 116923866}
   - {fileID: 167088374}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &55640588
 Transform:
@@ -539,7 +537,6 @@ MonoBehaviour:
   - {fileID: 1078812704}
   - {fileID: 982838029}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &107673900
 Transform:
@@ -596,7 +593,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1172692926}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &112383517
 Transform:
@@ -668,7 +664,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1172692926}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1001 &126782049
 PrefabInstance:
@@ -765,7 +760,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &137978205
 Transform:
@@ -963,7 +957,6 @@ MonoBehaviour:
   - {fileID: 137978204}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &147325859
 Transform:
@@ -1048,7 +1041,6 @@ MonoBehaviour:
   - {fileID: 116923866}
   - {fileID: 55640587}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &167088375
 Transform:
@@ -1103,7 +1095,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &203031124
 Transform:
@@ -1155,8 +1146,8 @@ MonoBehaviour:
   - {fileID: 589030509}
   - {fileID: 1544647448}
   - {fileID: 2101026297}
+  - {fileID: 1644499662}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &205753305
 Transform:
@@ -1376,7 +1367,6 @@ MonoBehaviour:
   - {fileID: 1224973083}
   - {fileID: 35431090}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &234411415
 Transform:
@@ -1431,7 +1421,6 @@ MonoBehaviour:
   - {fileID: 456918273}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &253177348
 Transform:
@@ -1486,7 +1475,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &275292629
 Transform:
@@ -1776,7 +1764,6 @@ MonoBehaviour:
   - {fileID: 234411414}
   - {fileID: 35431090}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &302955751
 Transform:
@@ -1841,7 +1828,6 @@ MonoBehaviour:
   - {fileID: 1797908454}
   - {fileID: 1756251670}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &322093679
 GameObject:
@@ -2013,7 +1999,6 @@ MonoBehaviour:
   - {fileID: 2110836731}
   - {fileID: 1640061686}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &336502250
 Transform:
@@ -2102,7 +2087,6 @@ MonoBehaviour:
   - {fileID: 137978204}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &362277567
 Transform:
@@ -2152,7 +2136,6 @@ MonoBehaviour:
   - {fileID: 1844680437}
   - {fileID: 1982207327}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &371669937
 Transform:
@@ -2211,13 +2194,8 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1238463620}
   - {fileID: 205753304}
-  - {fileID: 1755463147}
   - {fileID: 1172692926}
-  - {fileID: 55640587}
-  - {fileID: 167088374}
-  - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &380980658
 Transform:
@@ -2228,7 +2206,7 @@ Transform:
   m_GameObject: {fileID: 380980656}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.4, y: 1.8000002, z: 5.5}
+  m_LocalPosition: {x: 5.52, y: 1.8000002, z: 5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2272,7 +2250,6 @@ MonoBehaviour:
   - {fileID: 2052684581}
   - {fileID: 710327062}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &381816920
 Transform:
@@ -2454,7 +2431,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &438620572
 Transform:
@@ -2519,7 +2495,6 @@ MonoBehaviour:
   - {fileID: 2006469935}
   - {fileID: 1756251670}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &449008068
 GameObject:
@@ -2560,7 +2535,6 @@ MonoBehaviour:
   - {fileID: 1031246118}
   - {fileID: 986401518}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &449008070
 Transform:
@@ -2615,7 +2589,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &456918274
 Transform:
@@ -2813,7 +2786,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &490599851
 Transform:
@@ -3313,6 +3285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3463aa415a7186f088a296e60ea96688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mainScript
+  debugMode: 1
   toggleDebugKey: 9
 --- !u!1 &578632533
 GameObject:
@@ -3354,7 +3327,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 629144539}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &578632535
 Transform:
@@ -3413,7 +3385,6 @@ MonoBehaviour:
   - {fileID: 982838029}
   - {fileID: 205753304}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &589030510
 Transform:
@@ -3466,7 +3437,6 @@ MonoBehaviour:
   - {fileID: 107673899}
   - {fileID: 982838029}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &629144540
 Transform:
@@ -3804,7 +3774,6 @@ MonoBehaviour:
   - {fileID: 1030533631}
   - {fileID: 1078812704}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &710327063
 Transform:
@@ -4011,7 +3980,6 @@ MonoBehaviour:
   - {fileID: 710327062}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &810291811
 Transform:
@@ -4955,7 +4923,6 @@ MonoBehaviour:
   - {fileID: 2109823170}
   - {fileID: 490599850}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &973500675
 Transform:
@@ -5022,9 +4989,8 @@ MonoBehaviour:
   - {fileID: 629144539}
   - {fileID: 589030509}
   - {fileID: 1544647448}
-  - {fileID: 2101026297}
+  - {fileID: 1644499662}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &986401517
 GameObject:
@@ -5065,7 +5031,6 @@ MonoBehaviour:
   - {fileID: 490599850}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &986401519
 Transform:
@@ -5120,7 +5085,6 @@ MonoBehaviour:
   - {fileID: 1030533631}
   - {fileID: 1078812704}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &992626287
 Transform:
@@ -5314,7 +5278,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 629144539}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1030533632
 Transform:
@@ -5370,7 +5333,6 @@ MonoBehaviour:
   - {fileID: 456918273}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1031246119
 Transform:
@@ -5425,7 +5387,6 @@ MonoBehaviour:
   - {fileID: 167088374}
   - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1077515422
 Transform:
@@ -5497,7 +5458,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 629144539}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1084536805
 GameObject:
@@ -5538,7 +5498,6 @@ MonoBehaviour:
   - {fileID: 147325858}
   - {fileID: 810291810}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1084536807
 Transform:
@@ -5593,7 +5552,6 @@ MonoBehaviour:
   - {fileID: 2109823170}
   - {fileID: 490599850}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1097430854
 Transform:
@@ -5645,7 +5603,6 @@ MonoBehaviour:
   - {fileID: 1357145084}
   - {fileID: 1208367474}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1102782569
 Transform:
@@ -5859,7 +5816,7 @@ Transform:
   m_GameObject: {fileID: 1122331218}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.35, y: 1.8000002, z: 14.2}
+  m_LocalPosition: {x: 30.38, y: 1.8000002, z: 16.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5880,8 +5837,10 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1982207327}
   - {fileID: 2122413940}
+  - {fileID: 1172930834}
+  - {fileID: 1206065923}
+  - {fileID: 1575542938}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1127738424
 GameObject:
@@ -5964,7 +5923,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1644499662}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1166131647
 GameObject:
@@ -6002,7 +5960,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1166131649
 Transform:
@@ -6053,8 +6010,8 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   - {fileID: 1755463147}
+  - {fileID: 380980657}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1172692927
 Transform:
@@ -6102,8 +6059,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1206065923}
+  - {fileID: 2122413940}
+  - {fileID: 1122331220}
+  - {fileID: 1180127508}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1172930835
 Transform:
@@ -6151,8 +6110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1797908454}
+  - {fileID: 1172930834}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1180127509
 Transform:
@@ -6200,9 +6159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1172930834}
-  - {fileID: 1575542938}
+  - {fileID: 2122413940}
+  - {fileID: 1122331220}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1206065924
 Transform:
@@ -6258,7 +6217,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1208367475
 Transform:
@@ -6313,7 +6271,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1224973084
 Transform:
@@ -6368,7 +6325,6 @@ MonoBehaviour:
   - {fileID: 167088374}
   - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1238463621
 Transform:
@@ -6425,7 +6381,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1172692926}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1299544629
 Transform:
@@ -6923,7 +6878,6 @@ MonoBehaviour:
   - {fileID: 1667300864}
   - {fileID: 1208367474}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1357145085
 Transform:
@@ -7068,7 +7022,6 @@ MonoBehaviour:
   - {fileID: 2052684581}
   - {fileID: 710327062}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1429372948
 Transform:
@@ -7256,7 +7209,6 @@ MonoBehaviour:
   - {fileID: 456918273}
   - {fileID: 449008069}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1511630098
 Transform:
@@ -7311,7 +7263,6 @@ MonoBehaviour:
   - {fileID: 1511630097}
   - {fileID: 1031246118}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1517938461
 Transform:
@@ -7381,7 +7332,6 @@ MonoBehaviour:
   - {fileID: 205753304}
   - {fileID: 380980657}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1575542937
 GameObject:
@@ -7414,14 +7364,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1206065923}
-  - {fileID: 1077515421}
-  - {fileID: 1755463147}
-  - {fileID: 1172692926}
-  - {fileID: 55640587}
+  - {fileID: 2122413940}
+  - {fileID: 1122331220}
   - {fileID: 167088374}
-  - {fileID: 1166131648}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1575542939
 Transform:
@@ -7510,7 +7456,6 @@ MonoBehaviour:
   - {fileID: 336502249}
   - {fileID: 1844680437}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1640061687
 Transform:
@@ -7558,8 +7503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GraphNode
   neighbours:
   - {fileID: 1147755960}
+  - {fileID: 205753304}
+  - {fileID: 982838029}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1644499663
 Transform:
@@ -7664,7 +7610,6 @@ MonoBehaviour:
   - {fileID: 1912372857}
   - {fileID: 147325858}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1667300865
 Transform:
@@ -7778,7 +7723,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1755463148
 Transform:
@@ -7843,7 +7787,6 @@ MonoBehaviour:
   - {fileID: 312598567}
   - {fileID: 443005150}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1788785949 stripped
 GameObject:
@@ -7919,7 +7862,6 @@ MonoBehaviour:
   - {fileID: 1180127508}
   - {fileID: 312598567}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1804621382 stripped
 Transform:
@@ -7993,7 +7935,6 @@ MonoBehaviour:
   - {fileID: 1640061686}
   - {fileID: 371669936}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1844680438
 Transform:
@@ -8081,7 +8022,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 2110836731}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1854686793
 Transform:
@@ -8234,7 +8174,6 @@ MonoBehaviour:
   - {fileID: 137978204}
   - {fileID: 1084536806}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1912372858
 Transform:
@@ -8289,7 +8228,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1959178243
 Transform:
@@ -8341,7 +8279,6 @@ MonoBehaviour:
   - {fileID: 234411414}
   - {fileID: 35431090}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1959584943
 Transform:
@@ -8408,7 +8345,6 @@ MonoBehaviour:
   - {fileID: 1357145084}
   - {fileID: 1208367474}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1 &1981359170 stripped
 GameObject:
@@ -8476,7 +8412,6 @@ MonoBehaviour:
   - {fileID: 2122413940}
   - {fileID: 1122331220}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &1982207328
 Transform:
@@ -8664,7 +8599,6 @@ MonoBehaviour:
   neighbours:
   - {fileID: 443005150}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!1001 &2020900170
 PrefabInstance:
@@ -8791,7 +8725,6 @@ MonoBehaviour:
   - {fileID: 1030533631}
   - {fileID: 1078812704}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2052684582
 Transform:
@@ -8907,7 +8840,6 @@ MonoBehaviour:
   - {fileID: 982838029}
   - {fileID: 205753304}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2101026298
 Transform:
@@ -8962,7 +8894,6 @@ MonoBehaviour:
   - {fileID: 1299544628}
   - {fileID: 116923866}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2109823171
 Transform:
@@ -9012,7 +8943,6 @@ MonoBehaviour:
   - {fileID: 1854686792}
   - {fileID: 336502249}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2110836732
 Transform:
@@ -9223,8 +9153,10 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1982207327}
   - {fileID: 1122331220}
+  - {fileID: 1172930834}
+  - {fileID: 1206065923}
+  - {fileID: 1575542938}
   doorObject: {fileID: 0}
-  graphOn: 1
   isDoor: 0
 --- !u!4 &2122413941
 Transform:
