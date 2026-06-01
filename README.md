@@ -73,6 +73,10 @@ Suggested workflow to review bindings:
 - com.unity.timeline 1.8.12
 - com.unity.ugui 2.0.0
 
+## Credits and Attribution
+- Free Wood Door Pack (asset pack)
+- TextMesh Pro (Unity package)
+
 ## Notes
 - Unity Readme asset is located at Assets/Readme.asset.
 - Update this README when scenes, scripts, or assets change.
