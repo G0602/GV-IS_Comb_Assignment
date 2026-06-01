@@ -13,6 +13,22 @@ Last updated: 2026-06-01
 3. If needed, set the active scene in Build Settings.
 4. Press Play.
 
+## Project Overview
+This project is a Unity-based assignment with a focus on interactive gameplay systems. Core gameplay features are implemented in the Scripts folders listed below, with input configured through the Input System asset.
+
+## Controls
+Controls are defined in Assets/InputSystem_Actions.inputactions.
+
+Suggested workflow to review bindings:
+1. Open the Input Actions asset in Unity.
+2. Inspect the action maps and bindings.
+3. Update or rebind as needed for keyboard, mouse, or gamepad.
+
+## Build and Run
+1. Open File > Build Settings.
+2. Add the intended scene(s) to the build list.
+3. Select target platform and press Build.
+
 ## Scenes
 - MainScene.unity
 - MainGasmeScene.unity
