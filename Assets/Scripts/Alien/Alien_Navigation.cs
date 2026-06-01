@@ -12,6 +12,7 @@ public class AlienNavTest : MonoBehaviour
     public float targetMoveRepathDistance = 2f;
     public float deathDistance = 2f;
     public string playerTag = "Player";
+    public PathLineRenderer pathLineRenderer;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -101,6 +102,10 @@ public class AlienNavTest : MonoBehaviour
         else
         {
             path = BFSPathfinder.FindPath(currentNode, activeTargetNode);
+            if (pathLineRenderer != null)
+            {
+                pathLineRenderer.DrawPath(path);
+            }
         }
 
         if (path == null || path.Count == 0)
