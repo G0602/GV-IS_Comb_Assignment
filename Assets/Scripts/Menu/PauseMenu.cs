@@ -34,6 +34,9 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI = CreateDefaultPauseMenu();
         }
 
+        var menuCanvas = MenuInputUtility.GetOrCreateOverlayCanvas("PauseMenuCanvas");
+        pauseMenuUI.transform.SetParent(menuCanvas.transform, false);
+
         menuButtons = MenuInputUtility.PrepareButtons(pauseMenuUI);
         ApplyButtonLabels();
         pauseMenuUI.SetActive(false);
@@ -160,33 +163,7 @@ public class PauseMenu : MonoBehaviour
 
     private static Canvas GetOrCreateCanvas()
     {
-        var canvas = FindAnyObjectByType<Canvas>(FindObjectsInactive.Include);
-        if (canvas != null)
-        {
-            MenuInputUtility.EnsureGraphicRaycaster(canvas);
-            MenuInputUtility.EnsureEventSystem();
-            return canvas;
-        }
-
-        var canvasObject = new GameObject("Canvas");
-        canvas = canvasObject.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasObject.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        MenuInputUtility.EnsureGraphicRaycaster(canvas);
-        MenuInputUtility.EnsureEventSystem();
-        return canvas;
-    }
-
-    private static void EnsureEventSystem()
-    {
-        if (FindAnyObjectByType<EventSystem>(FindObjectsInactive.Include) != null)
-        {
-            return;
-        }
-
-        var eventSystem = new GameObject("EventSystem");
-        eventSystem.AddComponent<EventSystem>();
-        eventSystem.AddComponent<StandaloneInputModule>();
+        return MenuInputUtility.GetOrCreateOverlayCanvas("PauseMenuCanvas");
     }
 
     private static GameObject CreatePanel(Transform parent, string name)

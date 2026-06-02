@@ -26,6 +26,9 @@ public class GameOverMenu : MonoBehaviour
             gameOverUI = CreateDefaultGameOverMenu();
         }
 
+        var menuCanvas = MenuInputUtility.GetOrCreateOverlayCanvas("GameOverMenuCanvas");
+        gameOverUI.transform.SetParent(menuCanvas.transform, false);
+
         titleLabel = gameOverUI.GetComponentInChildren<TextMeshProUGUI>(true);
         menuButtons = MenuInputUtility.PrepareButtons(gameOverUI);
         ApplyButtonLabels();
@@ -149,33 +152,7 @@ public class GameOverMenu : MonoBehaviour
 
     private static Canvas GetOrCreateCanvas()
     {
-        var canvas = FindAnyObjectByType<Canvas>(FindObjectsInactive.Include);
-        if (canvas != null)
-        {
-            MenuInputUtility.EnsureGraphicRaycaster(canvas);
-            MenuInputUtility.EnsureEventSystem();
-            return canvas;
-        }
-
-        var canvasObject = new GameObject("Canvas");
-        canvas = canvasObject.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvasObject.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        MenuInputUtility.EnsureGraphicRaycaster(canvas);
-        MenuInputUtility.EnsureEventSystem();
-        return canvas;
-    }
-
-    private static void EnsureEventSystem()
-    {
-        if (FindAnyObjectByType<EventSystem>(FindObjectsInactive.Include) != null)
-        {
-            return;
-        }
-
-        var eventSystem = new GameObject("EventSystem");
-        eventSystem.AddComponent<EventSystem>();
-        eventSystem.AddComponent<StandaloneInputModule>();
+        return MenuInputUtility.GetOrCreateOverlayCanvas("GameOverMenuCanvas");
     }
 
     private static GameObject CreatePanel(Transform parent, string name)
