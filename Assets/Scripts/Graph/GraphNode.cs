@@ -1,31 +1,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SphereCollider))]
 public class GraphNode : MonoBehaviour
 {
     public List<GraphNode> neighbours = new List<GraphNode>();
+
+    public float rad = 1.0f;
+
 
     [SerializeField] private DoorInteractable doorObject;
 
     public bool isDoor = false;
 
+    public bool isBlocked = false;
+
+    private readonly HashSet<Collider> blockingColliders = new HashSet<Collider>();
+    private SphereCollider nodeCollider;
+
     public Vector3 Position => transform.position;
 
-    public bool IsOpen()
+    private void Awake()
     {
-        if (doorObject != null)
+        SetupCollider();
+    }
+
+    private void OnEnable()
+    {
+        SetupCollider();
+    }
+
+    private void OnValidate()
+    {
+        SetupCollider();
+    }
+
+    private void Start()
+    {
+        if (isDoor && doorObject != null)
         {
-            return doorObject.IsOpen();
+            isBlocked = !doorObject.IsOpen();
         }
-        return true; // If there's no door, consider it open
+    }
+
+    private void Update()
+    {
+        if (isDoor && doorObject != null)
+        {
+            isBlocked = !doorObject.IsOpen();
+        }
+    }
+
+    private void SetupCollider()
+    {
+        nodeCollider = GetComponent<SphereCollider>();
+        if (nodeCollider == null)
+        {
+            return;
+        }
+
+        nodeCollider.isTrigger = true;
+        nodeCollider.center = Vector3.zero;
+        nodeCollider.radius = Mathf.Max(0f, rad);
+    }
+
+    private static bool ShouldIgnoreCollider(Collider other)
+    {
+        if (other == null)
+        {
+            return true;
+        }
+
+        Transform root = other.transform.root;
+        if (root != null && (root.CompareTag("Player") || root.CompareTag("Alien")))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 1.0f);
+        if (isBlocked)
+        {
+            Gizmos.color = Color.red;
+        } else
+        {
+            Gizmos.color = Color.green;
+        }
+        Gizmos.DrawSphere(transform.position, rad);
 
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.yellow;
 
         foreach (GraphNode neighbour in neighbours)
         {
@@ -33,6 +99,32 @@ public class GraphNode : MonoBehaviour
             {
                 Gizmos.DrawLine(transform.position, neighbour.transform.position);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (ShouldIgnoreCollider(other))
+        {
+            return;
+        }
+
+        if (blockingColliders.Add(other))
+        {
+            isBlocked = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (ShouldIgnoreCollider(other))
+        {
+            return;
+        }
+
+        if (blockingColliders.Remove(other))
+        {
+            isBlocked = blockingColliders.Count > 0;
         }
     }
 }

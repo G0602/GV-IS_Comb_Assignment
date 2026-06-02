@@ -16,6 +16,8 @@ public static class MenuInputUtility
         Button[] buttons = menuRoot.GetComponentsInChildren<Button>(true);
         for (int i = 0; i < buttons.Length; i++)
         {
+            EnsureMouseSelectable(buttons[i]);
+
             Navigation navigation = buttons[i].navigation;
             navigation.mode = Navigation.Mode.Explicit;
             navigation.selectOnUp = buttons[(i - 1 + buttons.Length) % buttons.Length];
@@ -109,6 +111,39 @@ public static class MenuInputUtility
         if (canvas != null && canvas.GetComponent<GraphicRaycaster>() == null)
         {
             canvas.gameObject.AddComponent<GraphicRaycaster>();
+        }
+    }
+
+    public static Canvas GetOrCreateOverlayCanvas(string canvasName)
+    {
+        var canvasObject = FindSceneObjectByName(canvasName);
+        var canvas = canvasObject != null ? canvasObject.GetComponent<Canvas>() : null;
+
+        if (canvas == null)
+        {
+            var newCanvasObject = new GameObject(canvasName);
+            canvas = newCanvasObject.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            newCanvasObject.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        }
+
+        canvas.overrideSorting = true;
+        canvas.sortingOrder = 1000;
+        EnsureGraphicRaycaster(canvas);
+        EnsureEventSystem();
+        return canvas;
+    }
+
+    private static void EnsureMouseSelectable(Button button)
+    {
+        if (button == null)
+        {
+            return;
+        }
+
+        if (button.GetComponent<MenuSelectableButton>() == null)
+        {
+            button.gameObject.AddComponent<MenuSelectableButton>();
         }
     }
 
