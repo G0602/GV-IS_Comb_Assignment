@@ -5,6 +5,11 @@ public static class  BFSPathfinder
 {
     public static List<GraphNode> FindPath(GraphNode startNode, GraphNode goalNode)
     {
+        if (startNode == null || goalNode == null || startNode.isBlocked || goalNode.isBlocked)
+        {
+            return null;
+        }
+
         Queue<GraphNode> frontier = new Queue<GraphNode>();
         Dictionary<GraphNode, GraphNode> cameFrom = new Dictionary<GraphNode, GraphNode>();
         HashSet<GraphNode> visited = new HashSet<GraphNode>();
@@ -17,6 +22,11 @@ public static class  BFSPathfinder
         {
             GraphNode currentNode = frontier.Dequeue();
 
+            if (currentNode == null || currentNode.isBlocked)
+            {
+                continue;
+            }
+
             if (currentNode == goalNode)
             {
                 return BuildPath(cameFrom, goalNode);
@@ -24,7 +34,7 @@ public static class  BFSPathfinder
 
             foreach (GraphNode neighbour in currentNode.neighbours)
             {
-                if (neighbour == null)
+                if (neighbour == null || neighbour.isBlocked)
                     continue;
 
                 if (!visited.Contains(neighbour))

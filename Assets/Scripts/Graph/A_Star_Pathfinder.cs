@@ -5,7 +5,7 @@ public static class A_Star_Pathfinder
 {
     public static List<GraphNode> FindPath(GraphNode start, GraphNode goal)
     {
-        if (start == null || goal == null)
+        if (start == null || goal == null || start.isBlocked || goal.isBlocked)
         {
             return null;
         }
@@ -21,13 +21,19 @@ public static class A_Star_Pathfinder
         while (openSet.Count > 0)
         {
             GraphNode current = GetLowestScoreNode(openSet, gScore, goal);
+            openSet.Remove(current);
+
+            if (current == null || current.isBlocked)
+            {
+                continue;
+            }
+
 
             if (current == goal)
             {
                 return ReconstructPath(cameFrom, current);
             }
 
-            openSet.Remove(current);
             closedSet.Add(current);
 
             foreach (GraphNode neighbor in current.neighbours)
@@ -42,7 +48,7 @@ public static class A_Star_Pathfinder
                 //     continue;
                 // }
 
-                if(neighbor.isDoor && !neighbor.IsOpen())
+                if(neighbor.isBlocked)
                 {
                     continue;
                 }
