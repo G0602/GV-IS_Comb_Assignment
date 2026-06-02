@@ -6,6 +6,7 @@ public class AlienFreezeTest : MonoBehaviour
     private bool isFrozen = false;
     private NavMeshAgent agent;
     private Animator animator;
+    private float defaultAnimatorSpeed = 1f;
 
     private int speedHash;
     private int motionSpeedHash;
@@ -14,6 +15,10 @@ public class AlienFreezeTest : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            defaultAnimatorSpeed = animator.speed;
+        }
         speedHash = Animator.StringToHash("Speed");
         motionSpeedHash = Animator.StringToHash("MotionSpeed");
     }
@@ -34,6 +39,7 @@ public class AlienFreezeTest : MonoBehaviour
             }
 
             SetAnimatorSpeed(0f);
+            SetAnimatorPaused(true);
             Debug.Log("Alien frozen by flashlight.");
         }
         else
@@ -43,6 +49,7 @@ public class AlienFreezeTest : MonoBehaviour
                 agent.isStopped = false;
             }
 
+            SetAnimatorPaused(false);
             Debug.Log("Alien unfrozen.");
         }
     }
@@ -61,5 +68,15 @@ public class AlienFreezeTest : MonoBehaviour
 
         animator.SetFloat(speedHash, speed);
         animator.SetFloat(motionSpeedHash, speed > 0.1f ? 1f : 0f);
+    }
+
+    private void SetAnimatorPaused(bool paused)
+    {
+        if (animator == null)
+        {
+            return;
+        }
+
+        animator.speed = paused ? 0f : defaultAnimatorSpeed;
     }
 }

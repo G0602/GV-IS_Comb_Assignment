@@ -54,7 +54,7 @@ public class FlashlightAlienFreeze : MonoBehaviour
             flashlightOrigin.position,
             freezeRange,
             detectionLayers,
-            QueryTriggerInteraction.Ignore
+            QueryTriggerInteraction.Collide
         );
 
         HashSet<AlienFreezeTest> aliensInCone = new HashSet<AlienFreezeTest>();
@@ -149,7 +149,7 @@ public class FlashlightAlienFreeze : MonoBehaviour
             directionToTarget.normalized,
             distanceToTarget,
             detectionLayers,
-            QueryTriggerInteraction.Ignore
+            QueryTriggerInteraction.Collide
         );
 
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
